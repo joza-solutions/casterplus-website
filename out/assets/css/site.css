@@ -174,7 +174,7 @@ a:hover { color: var(--link-hover); text-decoration-thickness: 2px; }
 .lede { font-size: clamp(1.1rem, 1rem + .45vw, 1.3rem); max-width: 34em; }
 .hero .fineprint { margin-top: 1.1rem; font-size: .95rem; }
 
-.cta-row { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.9rem; }
+.cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; margin-top: 1.9rem; }
 
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: .6rem;
@@ -182,11 +182,26 @@ a:hover { color: var(--link-hover); text-decoration-thickness: 2px; }
   border: 2px solid transparent; border-radius: 999px;
   font-weight: 700; font-size: 1.02rem; line-height: 1.2; text-decoration: none;
 }
-.band .btn-play, .btn-play { background: #fff; color: var(--brand-900); box-shadow: 0 10px 24px rgba(4, 16, 36, .28); }
-.band .btn-play:hover, .btn-play:hover { background: #EAF1FB; color: var(--brand-900); }
+.band .btn-primary, .btn-primary { background: #fff; color: var(--brand-900); box-shadow: 0 10px 24px rgba(4, 16, 36, .28); }
+.band .btn-primary:hover, .btn-primary:hover { background: #EAF1FB; color: var(--brand-900); }
 .btn-ghost { color: #fff; border-color: rgba(255, 255, 255, .6); }
 .btn-ghost:hover { background: rgba(255, 255, 255, .12); }
 .btn .i { width: 20px; height: 20px; }
+
+/* Google's "Get it on Google Play" badge, used exactly as Google supplies it.
+   The file has transparent padding of a quarter of the badge's height on every
+   side, which is the clear space Google asks for. The negative margin lets the
+   visible badge line up with the text while that space stays clear. */
+.play-badge {
+  --badge: 56px; /* height of the visible badge */
+  --pad: calc(var(--badge) * 41 / 168);
+  display: inline-block;
+  margin: calc(var(--pad) * -1);
+  line-height: 0;
+  border-radius: calc(var(--pad) + 10px);
+}
+.play-badge img { display: block; width: auto; height: calc(var(--badge) * 250 / 168); }
+.play-badge:focus-visible { outline-offset: calc(var(--pad) * -1 + 3px); }
 
 .hero-shot {
   justify-self: center;
