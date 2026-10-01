@@ -25,6 +25,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Authenticate Github
+      uses: joza-solutions/ci-cd/auth-gh-ci-cd@main
+      id: auth
+      with:
+        ci-cd-app-id: ${{ vars.CI_CD_APP_ID }}
+        ci-cd-app-private-key: ${{ secrets.CI_CD_APP_PRIVATE_KEY }}
     - name: Checkout code
       uses: actions/checkout@v4
     - name: Setup Pages
