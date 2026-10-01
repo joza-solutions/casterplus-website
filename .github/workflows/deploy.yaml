@@ -26,7 +26,7 @@ jobs:
 
     steps:
     - name: Authenticate Github
-      uses: joza-solutions/ci-cd/auth-gh-ci-cd@main
+      uses: joza-solutions/ci-cd/actions/auth-gh-ci-cd@main
       id: auth
       with:
         ci-cd-app-id: ${{ vars.CI_CD_APP_ID }}
